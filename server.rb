@@ -13,15 +13,15 @@ namespace '/api/v1' do
         content_type 'application/json'
     end
 
-    get '/names' do
+    get '/people' do
         file = File.open('./lib/FakerDataFiles/faker-data.js','r')
         file.read
       end
 
-      get '/names/new' do
+      get '/people/new' do
         data = FakerData.new
         data.generate_data
         data.read_file
-        redirect to('/api/v1/names')
+        redirect to('/api/v1/people')
       end
 end
